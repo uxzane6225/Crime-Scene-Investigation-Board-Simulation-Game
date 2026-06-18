@@ -78,6 +78,7 @@ function rounds(paragraph, first, second, third, hints) {
             selected = null;
         }
     });
+<<<<<<< HEAD
 
     check.addEventListener('click', e => {
         
@@ -178,3 +179,8 @@ function rounds(paragraph, first, second, third, hints) {
 }
 
 console.log('other unrelated change');
+=======
+}
+
+console.log('change');
+>>>>>>> 6de765a435197f176a136085e4be8763d06ccd77
