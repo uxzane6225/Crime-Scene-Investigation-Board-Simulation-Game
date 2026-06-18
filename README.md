@@ -5,10 +5,10 @@ Crime Scene Investigation Board Simulation Game
 
 ## Group: 1
 ### Members:
- 1. Carandang
- 2. Llena
+ 1. Carandang (not)
+ 2. Llena (not)
  3. Mendoza
- 4. Somera
+ 4. Somera (not)
 
 ## Requirements:
 Build a case by organizing clues, suspects, and evidence.
