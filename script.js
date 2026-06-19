@@ -4,14 +4,20 @@ const choices = document.getElementById('choices');
 const check = document.getElementById('check');
 let score = 0;
 let startBtn = document.getElementById('startBtn').addEventListener('click', e => {
-    e.target.remove();
-    
+    //e.target.remove();
+    e.target.style.display = "none";
     mainGame();
 });
 
 
 function mainGame() {
-    rounds("This is where the dialogue will be. The dialogue consists of a scenario riddled with hints", "This is the first choice", "This is the second choice", "This is the third choice", "This is a hint, telling you what to find.");
+    rounds(
+        "This is where the dialogue will be. The dialogue consists of a scenario riddled with hints",
+        "This is the first choice",
+        "This is the second choice",
+        "This is the third choice",
+        "This is a hint, telling you what to find."
+    )
 }
 
 
@@ -78,7 +84,6 @@ function rounds(paragraph, first, second, third, hints) {
             selected = null;
         }
     });
-<<<<<<< HEAD
 
     check.addEventListener('click', e => {
         
@@ -87,8 +92,6 @@ function rounds(paragraph, first, second, third, hints) {
         let incorrectEvidence = [];
 
         board.childNodes.forEach(children => {
-            //childList.push(children);
-
             if (children.classList == null) {
                 console.log('none');
             }
@@ -102,85 +105,44 @@ function rounds(paragraph, first, second, third, hints) {
                     incorrectEvidence.push(children);
                 }
             }
-
-            // for (let i = 0; i < correctEvidence.length; i++) {
-            //     console.log(correctEvidence[i]);
-            // }
-
-            // for (let i = 0; i < incorrectEvidence.length; i++) {
-            //     console.log(incorrectEvidence[i]);
-            // }
         });
+
         console.log(correctEvidence.length);
         console.log(incorrectEvidence.length);
 
         if (correctEvidence.length > 0) {
+            p.remove();
+            hint.remove();
+            choice1.remove();
+            choice2.remove();
+            choice3.remove();
+            let continueBtn = document.createElement('button');
+            continueBtn.id = 'continueBtnBtn';
+            continueBtn.classList.add('btnClass');
+            continueBtn.innerHTML = "Continue";
+            dialogue.appendChild(continueBtn);
+
+
+
             if (incorrectEvidence.length > 1) {
-                console.log('+1');
+                alert('+1');
+                score += 1;
+                return true;
             }
             else if (incorrectEvidence.length > 0) {
-                console.log('+3');
+                alert('+3');
+                score += 3;
+                return true;
             }
             else {
-                console.log('+5');
+                alert('+5');
+                score += 5;
+                return true;
             }
         }
         else {
-            console.log('try again');
+            return false;
         }
-
-        // for (let i = 0; i < childList.length; i++ ) {
-        //     console.log(childList);
-        // }
-
         
-        //const p = board.closest('p');
-        //if (!p) return;
-
-        // board.childNodes.forEach(children => {
-        //     console.log(children.classList.contains('correct'));
-        // });
-
-        //const classes = document.getElementsByClassName('correct');
-         
-
-
-
-        
-        // let childNodes = [];
-        
-        // let boardChild = board.childNodes;
-
-        // boardChild.forEach(children => {
-        //     console.log(children);
-        //     console.log(children.classList);
-
-            
-        //     let childClasses = children.classList;
-        //     console.log(childClasses);
-
-        //     if (childClasses.contains('correct')) {
-        //         console.log('correct');
-        //     }
-        //     else {
-        //         console.log('incorrect');
-        //     }
-        //     // childClasses.forEach(classes => {
-        //     //     console.log(classes);
-        //     // });
-        //     // if (children.classList.contains('correct')) {
-        //     //     console.log('correct');
-        //     // }
-        //     // else {
-        //     //     console.log('incorrect');
-        //     // }
-        // });
     });
 }
-
-console.log('other unrelated change');
-=======
-}
-
-console.log('change');
->>>>>>> 6de765a435197f176a136085e4be8763d06ccd77

@@ -52,7 +52,6 @@ main {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    background-color: white;
     /* display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px; */
@@ -64,14 +63,20 @@ main {
     border: solid 1px;
 } */
 
-#choices {
+#choiceControls {
     padding: 10px;
     height: 100%;
+    width: 100%;
+    background-color: rgb(28, 46, 46);
+}
+
+#choices {
+    padding: 10px;
+    height: 95%;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgb(28, 46, 46);
 }
 
 .evidence {
@@ -83,6 +88,11 @@ main {
     background-color: rgb(29, 60, 60);
 }
 
+#check {
+    width: 100%;
+    padding: 10px;
+}
+
 #dialogue {
     padding: 20px;
     height: 100%;
@@ -91,7 +101,7 @@ main {
     background-color: rgb(36, 48, 48);
 }
 
-#startBtn {
+.btnClass {
     height: 100%;
     width: 100%;
     font-size: 40px;
