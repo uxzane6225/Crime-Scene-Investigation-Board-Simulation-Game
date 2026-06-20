@@ -3,6 +3,9 @@ const board = document.getElementById('board');
 const choices = document.getElementById('choices');
 const check = document.getElementById('check');
 let score = 0;
+let current = null;
+
+
 let startBtn = document.getElementById('startBtn').addEventListener('click', e => {
     //e.target.remove();
     e.target.style.display = "none";
@@ -16,12 +19,37 @@ function mainGame() {
         "This is the first choice",
         "This is the second choice",
         "This is the third choice",
-        "This is a hint, telling you what to find."
+        "This is a hint, telling you what to find.",
+        round2
+    )
+}
+
+function round2(){
+    rounds(
+        "This is where the dialogue will be. The dialogue consists of a scenario riddled with hints",
+        "This is the first choice",
+        "This is the second choice",
+        "This is the third choice",
+        "This is a hint, telling you what to find.",
+        round3,
+        3
+    )
+}
+
+function round3(){
+    rounds(
+        "This is where the dialogue will be. The dialogue consists of a scenario riddled with hints",
+        "This is the first choice",
+        "This is the second choice",
+        "This is the third choice",
+        "This is a hint, telling you what to find.",
+        null,
+        2
     )
 }
 
 
-function rounds(paragraph, first, second, third, hints) {
+function rounds(paragraph, first, second, third, hints, nextRound, correctIndex = 1) {
     let selected = null;
 
     let p = document.createElement('p');
@@ -36,21 +64,21 @@ function rounds(paragraph, first, second, third, hints) {
 
     let choice1 = document.createElement('p');
     choice1.classList.add('evidence');
-    choice1.classList.add('correct');
+    choice1.classList.add(correctIndex === 1 ? 'correct' : 'wrong');
     choice1.draggable = true;
     choice1.innerHTML = first;
     choices.appendChild(choice1);
 
     let choice2 = document.createElement('p');
     choice2.classList.add('evidence');
-    choice2.classList.add('wrong');
+    choice2.classList.add(correctIndex === 2 ? 'correct' : 'wrong');
     choice2.draggable = true;
     choice2.innerHTML = second;
     choices.appendChild(choice2);
 
     let choice3 = document.createElement('p');
     choice3.classList.add('evidence');
-    choice3.classList.add('wrong');
+    choice3.classList.add(correctIndex === 3 ? 'correct' : 'wrong');
     choice3.draggable = true;
     choice3.innerHTML = third;
     choices.appendChild(choice3);
@@ -62,6 +90,8 @@ function rounds(paragraph, first, second, third, hints) {
             selected = e.target;
         });
     }
+
+    current = { p, hint, choice1, choice2, choice3, nextRound}
 
     choices.addEventListener('dragover', e => {
         e.preventDefault();
@@ -111,11 +141,13 @@ function rounds(paragraph, first, second, third, hints) {
         console.log(incorrectEvidence.length);
 
         if (correctEvidence.length > 0) {
-            p.remove();
-            hint.remove();
-            choice1.remove();
-            choice2.remove();
-            choice3.remove();
+            current.p.remove();
+            current.hint.remove();
+            current.choice1.remove();
+            current.choice2.remove();
+            current.choice3.remove();
+            board.innerHTML = '';
+
             let continueBtn = document.createElement('button');
             continueBtn.id = 'continueBtnBtn';
             continueBtn.classList.add('btnClass');
@@ -123,7 +155,16 @@ function rounds(paragraph, first, second, third, hints) {
             dialogue.appendChild(continueBtn);
 
             continueBtn.addEventListener('click', () => {
-                alert("Round 1 complete! (Round 2 starting)");
+                continueBtn.remove();
+                if (current.nextRound){
+                    current.nextRound();
+                } else {
+                    dialogue.innerHTML = '';
+                    let done = document.createElement('p');
+                    done.classList.add('paragraph');
+                    done.innerHTML = `Investigation complete! Final score: ${score}`;
+                    dialogue.appendChild(done);
+                }
             });
 
 
