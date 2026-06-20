@@ -122,6 +122,10 @@ function rounds(paragraph, first, second, third, hints) {
             continueBtn.innerHTML = "Continue";
             dialogue.appendChild(continueBtn);
 
+            continueBtn.addEventListener('click', () => {
+                alert("Round 1 complete! (Round 2 starting)");
+            });
+
 
 
             if (incorrectEvidence.length > 1) {
