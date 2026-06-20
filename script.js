@@ -15,22 +15,22 @@ let startBtn = document.getElementById('startBtn').addEventListener('click', e =
 
 function mainGame() {
     rounds(
-        "This is where the dialogue will be. The dialogue consists of a scenario riddled with hints",
-        "This is the first choice",
-        "This is the second choice",
-        "This is the third choice",
-        "This is a hint, telling you what to find.",
+        "The victim, Mr. Anthony Delgado, was found dead inside his private study at Delgado Mansion late last night. The room was in disarray, with a broken vase lying near the body and furniture scattered across the floor. Investigators believe a struggle occurred shortly before the murder. Three suspects are being questioned: Michael Reyes, the victim's business partner; Sarah Cruz, the victim's personal assistant; and Daniel Santos, a neighbor who had frequent disputes with the victim. Your first task is to examine the crime scene and identify the most important piece of evidence.",
+        "Fingerprints on a broken vase",
+        "Family photograph",
+        "TV remote control",
+        "The killer accidentally left behind physical evidence during the struggle.",
         round2
     )
 }
 
 function round2(){
     rounds(
-        "This is where the dialogue will be. The dialogue consists of a scenario riddled with hints",
-        "This is the first choice",
-        "This is the second choice",
-        "This is the third choice",
-        "This is a hint, telling you what to find.",
+        "The forensic team confirms that the fingerprints found on the broken vase belong to one of the suspects. Investigators now focus on determining the motive behind the murder. A search of the victim's office reveals several personal and business documents. Among these documents may be the key to understanding who wanted the victim dead and why.",
+        "Unpaid electric bill",
+        "Grocery shopping list",
+        "Business contract showing a financial dispute",
+        "Look for evidence that reveals a strong reason to commit the crime.",
         round3,
         3
     )
@@ -38,11 +38,11 @@ function round2(){
 
 function round3(){
     rounds(
-        "This is where the dialogue will be. The dialogue consists of a scenario riddled with hints",
-        "This is the first choice",
-        "This is the second choice",
-        "This is the third choice",
-        "This is a hint, telling you what to find.",
+        "After uncovering a possible motive, investigators gather additional evidence to place the suspect at the scene of the crime. Security cameras from nearby properties are reviewed. The footage covers the hours leading up to the murder and may reveal who visited the mansion shortly before the victim was killed.",
+        "Weather report",
+        "Security footage showing Michael Reyes entering the mansion",
+        "Delivery receipt",
+        "The final clue must prove the suspect was present near the crime scene.",
         null,
         2
     )
