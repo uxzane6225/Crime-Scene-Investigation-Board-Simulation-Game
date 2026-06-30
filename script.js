@@ -2,6 +2,9 @@ const dialogue = document.getElementById('dialogue');
 const board = document.getElementById('board');
 const choices = document.getElementById('choices');
 const check = document.getElementById('check');
+const notesInput = document.getElementById('notesInput');
+const saveNotes = document.getElementById('saveNotes');
+const hintLog = document.getElementById('hintLog'); 
 let score = 0;
 let current = null;
 
@@ -191,3 +194,16 @@ function rounds(paragraph, first, second, third, hints, nextRound, correctIndex 
         
     });
 }
+
+
+window.addEventListener('load', function () {
+    let saved = localStorage.getItem('notes');
+    if (saved) {
+        notesInput.value = saved;
+    }
+});
+
+saveNotes.addEventListener('click', function () {
+    localStorage.setItem('notes', notesInput.value);
+    alert('Notes saved');
+});

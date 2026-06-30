@@ -8,7 +8,7 @@ Crime Scene Investigation Board Simulation Game
  1. Carandang 
  2. Llena
  3. Mendoza
- 4. Somera (not)
+ 4. Somera
 
 ## Requirements:
 Build a case by organizing clues, suspects, and evidence.
